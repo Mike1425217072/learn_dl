@@ -9,9 +9,14 @@ from numpy import *
 def sigmoid(inX):
     return 1.0 / (1 + exp(-inX))
 
-
+# 节点类，负责记录和维护节点自身信息以及与这个节点相关的上下游连接，实现输出值和误差项的计算。
 class Node(object):
     def __init__(self, layer_index, node_index):
+        '''
+        构造节点对象。
+        layer_index: 节点所属的层的编号
+        node_index: 节点的编号
+        '''
         self.layer_index = layer_index
         self.node_index = node_index
         self.downstream = []
